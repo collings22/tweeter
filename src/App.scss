@@ -1,9 +1,2 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
-
-.container{
-  width: fit-content;
-  text-align: center;
-
-  max-width: '90%';
-  min-width: min-content;
-}
+@import "./styles/card.module.scss";

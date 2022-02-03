@@ -1,20 +1,34 @@
+/**
+ * 
+ * @param {string} tweet 
+ * @returns The clients tweet not exceeding max character limit {140} and appended language appropriate tomato hashtag
+ */
+ export function processTweet(tweet) {
+  return addHashtag(tweet);
+}
+
+/**
+ * 
+ * @param {string} tweet 
+ * @returns Clients tweet upto the max tweet size {140} and with appended hashtag.
+ */
 function addHashtag(tweet) {
   const hashTag = getHashtagBasedOnUserLang();
   const tweetLimit = 140 - hashTag.length;
 
   if (!tweet.includes(hashTag)) {
     if (tweet.length >= tweetLimit) {
-      tweet = tweet.substr(0, tweetLimit);
+      tweet = tweet.substring(0, tweetLimit);
     }
     tweet += hashTag;
   }
   return tweet;
 }
 
-export function processTweet(tweet) {
-  return addHashtag(tweet);
-}
-
+/**
+ * 
+ * @returns Tomato in the language appropruate hashtag based on the clients browsers navigator.language value
+ */
 function getHashtagBasedOnUserLang() {
   const clientLang = navigator.language;
   switch (clientLang) {

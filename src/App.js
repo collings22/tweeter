@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.scss";
-import TextField from "@mui/material/TextField";
-import { processTweet } from "./marketingLogic";
+import { processTweet } from "./utils/marketingLogic";
+import TweetInput from "./features/TweetInput/TweetInput";
+import ConvertedTweet from "./features/ConvertedTweet/ConvertedTweet";
 
 export default function App() {
   const [output, setOutput] = React.useState("");
@@ -17,32 +18,15 @@ export default function App() {
   }
 
   return (
-    <div className="container">
-      <TextField
-        id="outlined-multiline-flexible"
-        label="Text to tweetify:"
-        multiline
-        fullWidth
-        inputProps={{ maxLength: 140 }}
-        minRows={2}
-        maxRows={3}
-        onChange={handleOnInputChange}
-      />
-      <hr />
-      <TextField
-        id="output"
-        label="Tweetified text:"
-        placeholder="Placeholder"
-        fullWidth
-        multiline
-        minRows={2}
-        maxRows={3}
-        value={output}
-        disabled
-        InputProps={{
-          maxLength: 140
-        }}
-      />
+    <div className="card">
+      <header>
+        <h1>Tweeter</h1>
+      </header>
+      <main>
+        <TweetInput handleOnInputChange={handleOnInputChange} />
+        <hr />
+        <ConvertedTweet output={output} />
+      </main>
     </div>
   );
 }
