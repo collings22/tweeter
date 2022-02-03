@@ -16,7 +16,7 @@ function addHashtag(tweet) {
   const hashTag = getHashtagBasedOnUserLang();
   const tweetLimit = 140 - hashTag.length;
 
-  if (!tweet.includes(hashTag)) {
+  if (!tweet.toLocaleLowerCase().includes(hashTag.toLocaleLowerCase())) {
     if (tweet.length >= tweetLimit) {
       tweet = tweet.substring(0, tweetLimit);
     }
