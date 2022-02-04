@@ -5,7 +5,8 @@ export default function TweetInput({ handleOnInputChange }) {
 
     return (
         <TextField
-            id="outlined-multiline-flexible"
+            id="tweeter-input"
+            data-testid="tweeter-input"
             label="Text to tweetify:"
             multiline
             fullWidth

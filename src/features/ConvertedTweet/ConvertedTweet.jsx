@@ -3,7 +3,8 @@ import TextField from "@mui/material/TextField";
 export default function ConvertedTweet({ output }) {
     return (
         <TextField
-            id="output"
+            id="tweeter-output"
+            data-testid="tweeter-output"
             label="Tweetified text:"
             placeholder="Placeholder"
             fullWidth
@@ -11,7 +12,7 @@ export default function ConvertedTweet({ output }) {
             minRows={4}
             maxRows={5}
             value={output}
-            disabled
+            disabled={true}
             InputProps={{
                 maxLength: 140
             }}
